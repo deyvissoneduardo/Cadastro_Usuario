@@ -1,5 +1,8 @@
+import 'package:cadastrousuario/view/user_list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Material());
+  runApp(MaterialApp(
+    home: UserList(),
+  ));
 }
