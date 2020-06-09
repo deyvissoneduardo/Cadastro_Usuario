@@ -1,4 +1,5 @@
 import 'package:cadastrousuario/provider/users.dart';
+import 'package:cadastrousuario/routes/app_routes.dart';
 import 'package:cadastrousuario/widgets/user_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +12,7 @@ class UserList extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('User List',
+        title: Text('Lista de Usuário',
         style: TextStyle(
           fontWeight: FontWeight.bold
         ),),
@@ -19,6 +20,9 @@ class UserList extends StatelessWidget {
          IconButton(
            icon: Icon(Icons.add),
            onPressed: (){
+             Navigator.of(context).pushNamed(
+               AppRoutes.USER_FORME
+             );
            },
          )
        ],
