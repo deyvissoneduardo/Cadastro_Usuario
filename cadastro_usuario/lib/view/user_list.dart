@@ -1,14 +1,20 @@
-import 'package:cadastrousuario/data/dummy_users.dart';
+import 'package:cadastrousuario/provider/users.dart';
 import 'package:cadastrousuario/widgets/user_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _users = {...DUMMY_USERS};
+    final _users = Provider.of<Users>(context);
+
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('User List'),
+        title: Text('User List',
+        style: TextStyle(
+          fontWeight: FontWeight.bold
+        ),),
        actions: <Widget>[
          IconButton(
            icon: Icon(Icons.add),
@@ -17,8 +23,8 @@ class UserList extends StatelessWidget {
        ],
       ),
       body: ListView.builder(
-        itemCount: _users.length, // conta itens da lista
-        itemBuilder: (context, index) => UserTile(_users.values.elementAt(index)), // cria a lista
+        itemCount: _users.count, // conta itens da lista
+        itemBuilder: (context, index) => UserTile(_users.byItem(index)), // cria a lista
       ),
     );
   }
