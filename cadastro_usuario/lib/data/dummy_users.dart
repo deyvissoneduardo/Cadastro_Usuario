@@ -20,5 +20,8 @@ const DUMMY_USERS = {
       avatarUrl:
           'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807_960_720.png'),
   '4': const User(
-      id: '4', name: 'Kelia Maiane', email: 'kelia@email.com', avatarUrl: ''),
+      id: '4',
+      name: 'Kelia Maiane',
+      email: 'kelia@email.com',
+      avatarUrl: ''),
 };
