@@ -13,12 +13,6 @@ const DUMMY_USERS = {
       email: 'ray@email.com',
       avatarUrl:
           'https://cdn.pixabay.com/photo/2020/04/15/17/32/medical-5047582_960_720.png'),
-  '3': const User(
-      id: '2',
-      name: 'Maria Silva',
-      email: 'maria@email.com',
-      avatarUrl:
-          'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807_960_720.png'),
   '4': const User(
       id: '4',
       name: 'Kelia Maiane',

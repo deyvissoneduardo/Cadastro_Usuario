@@ -1,6 +1,8 @@
 import 'package:cadastrousuario/model/user.dart';
+import 'package:cadastrousuario/provider/users.dart';
 import 'package:cadastrousuario/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
@@ -29,14 +31,35 @@ class UserTile extends StatelessWidget {
               color: Colors.blueAccent,
               onPressed: () {
                 Navigator.of(context).pushNamed(
-                    AppRoutes.USER_FORME,
+                  AppRoutes.USER_FORME,
                   arguments: user,
                 );
               }),
           IconButton(
               icon: Icon(Icons.delete),
               color: Colors.red,
-              onPressed: () {}),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: Text("Excluir?"),
+                          content: Text("Tem certeza"),
+                          actions: <Widget>[
+                            FlatButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text("Nao"),
+                            ),
+                            FlatButton(
+                              onPressed: () => Navigator.of(context).pop(true),
+                              child: Text("Sim"),
+                            ),
+                          ],
+                        )).then((confirmed) {
+                  if (confirmed) {
+                    Provider.of<Users>(context, listen: false).remove(user);
+                  }
+                });
+              }),
         ],
       ), // icons the actions
     );
